@@ -1,7 +1,3 @@
-# Team 225 — Predictive Maintenance (P5)
-
-TechTrek graduation project. Dataset: AI4I 2020 Predictive Maintenance (UCI, CC-BY 4.0).
-
 ## Team 225
 - مريم سالم سيد احمد
 - مصطفى يونس عسران يونس
