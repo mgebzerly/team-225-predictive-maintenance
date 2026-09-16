@@ -9,3 +9,4 @@ tensorflow
 shap
 streamlit
 tensorflow
+pytest

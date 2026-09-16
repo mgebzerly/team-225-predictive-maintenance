@@ -8,6 +8,9 @@ from model_utils import (
     build_mlp_features,
     predict_mlp,
 )
+from logging_config import setup_logging
+
+logger = setup_logging()
 
 st.set_page_config(
     page_title="Predictive Maintenance",
@@ -80,6 +83,7 @@ analyze = st.sidebar.button(
 # -----------------------------
 
 if analyze:
+    logger.info("Machine analysis started")
 
     rf_features = build_rf_features(
         machine_type,
@@ -97,6 +101,14 @@ if analyze:
         torque_nm,
         tool_wear_min,
     )
+    mlp_features = build_mlp_features(
+        machine_type,
+        air_temp_k,
+        process_temp_k,
+        rotational_speed_rpm,
+        torque_nm,
+        tool_wear_min,
+    )
 
     # Random Forest
     rf_result = predict_rf(rf_features)
@@ -104,6 +116,8 @@ if analyze:
     # Autoencoder
     ae_result = predict_anomaly(ae_features)
 
+    # MLP
+    mlp_result = predict_mlp(mlp_features)
 
     # -----------------------------
     # Derived Features
@@ -125,9 +139,7 @@ if analyze:
         st.metric("Torque", f"{torque_nm:.2f} Nm")
         st.metric("Tool Wear", f"{tool_wear_min:.0f} min")
 
-
     st.divider()
-
 
     # -----------------------------
     # Random Forest Result
@@ -157,9 +169,35 @@ if analyze:
     else:
         st.success("✅ No Machine Failure Predicted")
 
-
     st.divider()
 
+    # -----------------------------
+    # Deep MLP Result
+    # -----------------------------
+
+    st.subheader("🧠 Deep MLP Prediction")
+
+    mlp_probability = mlp_result["probability"]
+    mlp_threshold = mlp_result["threshold"]
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.metric(
+            "Failure Probability",
+            f"{mlp_probability * 100:.2f}%"
+        )
+
+    with col2:
+        st.metric(
+            "Decision Threshold",
+            f"{mlp_threshold:.2f}"
+        )
+
+    if mlp_result["prediction"]:
+        st.error("⚠️ Deep MLP predicts machine failure")
+    else:
+        st.success("✅ Deep MLP predicts no machine failure")
 
     # -----------------------------
     # Autoencoder Result
@@ -185,7 +223,6 @@ if analyze:
         st.warning("🚨 Machine behavior is classified as anomalous.")
     else:
         st.success("✅ Machine behavior is within the normal range.")
-
 
 else:
     st.info(
