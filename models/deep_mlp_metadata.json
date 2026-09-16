@@ -1,0 +1,56 @@
+{
+  "model_name": "Deep MLP",
+  "model_version": "v0.1.0",
+  "input_schema_version": "v1",
+  "random_seed": 42,
+  "target": "machine_failure",
+  "input_features": [
+    "type",
+    "air_temp_k",
+    "process_temp_k",
+    "rotational_speed_rpm",
+    "torque_nm",
+    "tool_wear_min",
+    "temp_diff_k",
+    "power_kw",
+    "wear_rate",
+    "temp_ratio",
+    "torque_per_rpm",
+    "torque_toolwear_interaction"
+  ],
+  "processed_features": [
+    "air_temp_k",
+    "process_temp_k",
+    "rotational_speed_rpm",
+    "torque_nm",
+    "tool_wear_min",
+    "temp_diff_k",
+    "power_kw",
+    "wear_rate",
+    "temp_ratio",
+    "torque_per_rpm",
+    "torque_toolwear_interaction",
+    "type_H",
+    "type_L",
+    "type_M"
+  ],
+  "excluded_identifiers": [
+    "udi",
+    "product_id"
+  ],
+  "excluded_leakage_features": [
+    "twf",
+    "hdf",
+    "pwf",
+    "osf",
+    "rnf"
+  ],
+  "decision_threshold": 0.09999999999999999,
+  "false_negative_cost": 10,
+  "false_positive_cost": 1,
+  "split_sizes": {
+    "train": 6400,
+    "validation": 1600,
+    "test": 2000
+  }
+}
