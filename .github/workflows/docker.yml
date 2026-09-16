@@ -1,0 +1,21 @@
+name: Docker Build Test
+
+on:
+  push:
+    branches:
+      - main
+      - feature/app-docker-tests
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t predictive-maintenance .
