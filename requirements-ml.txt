@@ -5,3 +5,5 @@ matplotlib
 joblib
 jupyter
 tabulate
+tensorflow
+shap

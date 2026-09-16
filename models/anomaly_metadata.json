@@ -1,0 +1,28 @@
+{
+  "model": "Autoencoder (11 -> 32 -> 16 -> 8 -> 16 -> 32 -> 11)",
+  "trained_on": "normal samples only",
+  "normal_training_samples": 7729,
+  "threshold": 0.0009047209316520485,
+  "test_precision": 0.2048,
+  "test_recall": 0.5,
+  "test_f1": 0.2906,
+  "test_roc_auc": 0.8356,
+  "test_pr_auc": 0.2933,
+  "test_business_cost": 472,
+  "fn_cost": 10,
+  "fp_cost": 1,
+  "features": [
+    "air_temp_k",
+    "process_temp_k",
+    "rotational_speed_rpm",
+    "torque_nm",
+    "tool_wear_min",
+    "temp_diff_k",
+    "power_kw",
+    "temp_ratio",
+    "torque_per_rpm",
+    "temp_x_speed",
+    "torque_x_wear"
+  ],
+  "seed": 42
+}
