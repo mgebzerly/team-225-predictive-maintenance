@@ -1,0 +1,3 @@
+split,rows,failures,failure_rate
+train,8000,271,0.033875
+test,2000,68,0.034

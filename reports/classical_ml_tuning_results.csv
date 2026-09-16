@@ -1,0 +1,5 @@
+rank_test_score,mean_test_score,std_test_score,params
+1,0.8725343562823444,0.0207778823058464,"{""classifier__max_depth"": 8, ""classifier__max_features"": 0.7, ""classifier__min_samples_leaf"": 10, ""classifier__n_estimators"": 150}"
+2,0.8627958982546663,0.011390003089741002,"{""classifier__max_depth"": 6, ""classifier__max_features"": ""sqrt"", ""classifier__min_samples_leaf"": 2, ""classifier__n_estimators"": 220}"
+3,0.8619819251818569,0.01529256890309436,"{""classifier__max_depth"": 6, ""classifier__max_features"": ""log2"", ""classifier__min_samples_leaf"": 5, ""classifier__n_estimators"": 100}"
+4,0.8575350116691882,0.017909278385043692,"{""classifier__max_depth"": 10, ""classifier__max_features"": ""sqrt"", ""classifier__min_samples_leaf"": 10, ""classifier__n_estimators"": 150}"

@@ -1,0 +1,35 @@
+{
+  "selected_model": "Random Forest",
+  "selection_basis": "Lowest out-of-fold training business cost, with CV PR-AUC and OOF recall as tie-breakers; held-out test metrics were not used for model selection.",
+  "decision_threshold": 0.33,
+  "false_negative_cost": 10,
+  "false_positive_cost": 1,
+  "cost_ratio_note": "10:1 is a project assumption for demonstrating cost-sensitive decision making, not a measured industrial maintenance cost.",
+  "cross_validation_folds": 3,
+  "test_fraction": 0.2,
+  "random_seed": 42,
+  "tuning_target_model": "Random Forest",
+  "tuning_improved_cv_pr_auc": false,
+  "best_tuning_parameters": {
+    "classifier__n_estimators": 150,
+    "classifier__min_samples_leaf": 10,
+    "classifier__max_features": 0.7,
+    "classifier__max_depth": 8
+  },
+  "target": "machine_failure",
+  "approved_input_features": [
+    "type",
+    "air_temp_k",
+    "process_temp_k",
+    "rotational_speed_rpm",
+    "torque_nm",
+    "tool_wear_min",
+    "temp_diff_k",
+    "power_kw",
+    "temp_ratio",
+    "torque_per_rpm",
+    "temp_x_speed",
+    "torque_x_wear"
+  ],
+  "source_dataset": "data/features/ai4i2020_features.csv"
+}
