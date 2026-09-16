@@ -7,3 +7,5 @@ jupyter
 tabulate
 tensorflow
 shap
+streamlit
+tensorflow
